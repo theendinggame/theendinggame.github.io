@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <style type="text/css">
         body, html {
-            margin: 0; padding: 0;
-            height: 100%; width: 100%;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
             overflow: hidden;
             background: #000;
             display: flex;
@@ -14,10 +16,10 @@
             align-items: center;
         }
 
-        /* This is the 'Vault'. It hides everything outside the 320x450 area. */
-        .game-vault {
+        /* This container "crops" the iframe to hide the Code.org bars */
+        .clipper {
             width: 320px;
-            height: 445px; /* Slightly shorter to ensure the bottom bar is cut */
+            height: 450px;
             overflow: hidden;
             position: relative;
             background: #000;
@@ -26,22 +28,25 @@
         iframe {
             position: absolute;
             width: 320px;
-            height: 550px; /* Way taller so the footer is pushed out of the vault */
-            top: -70px;    /* Pulls it up to hide the top 'Code.org' header */
+            height: 535px; /* Taller to push the footer down */
+            top: -65px;    /* Pulls it up to hide the header */
             left: 0;
             border: none;
         }
     </style>
     <script>
         function resize() {
-            const vault = document.querySelector('.game-vault');
+            const clipper = document.querySelector('.clipper');
+            
+            // Calculate scale for both directions
             const scaleX = window.innerWidth / 320;
             const scaleY = window.innerHeight / 450;
             
-            // Use Math.min to prevent stretching/distortion
+            // Math.min is the magic trick. It chooses the scale that 
+            // fits the screen without stretching the image.
             const finalScale = Math.min(scaleX, scaleY);
             
-            vault.style.transform = `scale(${finalScale})`;
+            clipper.style.transform = `scale(${finalScale})`;
         }
         window.onresize = resize;
         window.onload = resize;
@@ -49,8 +54,8 @@
 </head>
 <body>
 
-    <div class="game-vault">
-        <iframe src="https://studio.code.org/projects/applab/40b2f6de-1140-4362-b3ee-eee021e452d7/embed/?nophone=true"></iframe>
+    <div class="clipper">
+        <iframe src="https://studio.code.org/projects/applab/40b2f6de-1140-4362-b3ee-eee021e452d7/embed/?nophone=true" allowfullscreen></iframe>
     </div>
 
 </body>
