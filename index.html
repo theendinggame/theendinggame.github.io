@@ -9,40 +9,8 @@
     <link rel="manifest" href="/site.webmanifest?v=PART">
     <link rel="shortcut icon" href="/favicon.ico?v=PART">
 
-    <style>
-        body,
-        html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
-            background: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center
-        }
 
-        iframe {
-            width: 320px;
-            height: 450px;
-            border: none;
-            transform-origin: center
-        }
-    </style>
-    <script>
-        function resize() {
-            const i = document.querySelector("iframe"),
-                s = window.innerWidth / 320,
-                e = window.innerHeight / 450,
-                t = Math.min(s, e);
-            i.style.transform = `scale(${t})`
-        }
-        window.onresize = resize, window.onload = resize;
-    </script>
-</head>
-
-<body>
-    <iframe src="https://studio.code.org/projects/applab/2OqE8b1F-jj2O-2vbE-qvFF-FFFOEjF2TE1N/embed?nosource" allowfullscreen></iframe>
+<body style="background-color: rgb(218, 247, 0)">
+   
 </body>
 </html>
