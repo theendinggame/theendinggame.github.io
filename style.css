@@ -1,1 +1,22 @@
+.screen {
+  display: none; /* Hidden by default */
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Centering content */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
+/* Only the active screen gets shown */
+.screen.active {
+  display: flex;
+}
+
+/* Specific background for your Home Screen */
+#homeScreen {
+  background-color: rgb(218, 247, 0);
+}
