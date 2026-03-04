@@ -1,7 +1,7 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0; !important
+  padding: 0; !important
+  box-sizing: border-box; !important
 }
 
 body, html {
@@ -28,6 +28,9 @@ body, html {
 /* Only the active screen gets shown */
 .screen.active {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Specific background for your Home Screen */
